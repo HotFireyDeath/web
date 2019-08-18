@@ -6,7 +6,7 @@
   "display" : "fullscreen",
   "icons" : [
     {
-      "src" : "assets/images/logo.jpeg",
+      "src" : "https://raw.githubusercontent.com/HotFireyDeath/web/master/assets/images/logo.jpeg",
       "sizes" : "500x500",
       "type" : "image/jpeg"
     }
