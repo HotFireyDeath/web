@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+
+<!--
+
+Official website of Chen Zheng (@HotFireyDeath).
+Twitter: @HotFireyDeath
+
+v4:
+* New, clean material theme.
+* Cleaner, simpler code.
+* Static (no PHP backend).
+* Can be installed as a PWA.
+
+Copyright © 2018 Chen Zheng
+
+-->
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <link rel="manifest" href="manifest.json">
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="assets/materialize/materialize.min.css">
+        <script src="assets/jquery/jquery-3.3.1.min.js"></script>
+        <script src="assets/fontawesome/fontawesome_5.0.8.js"></script>
+        <script src="assets/materialize/materialize.min.js"></script>
+        <title>HotFireyDeath | Chen Zheng</title>
+    </head>
+    <body style="background-color: #EEEEEE;">
+        <nav style="background-color: #8BC34A;">
+            <div class="nav-wrapper">
+                <img class="brand-logo left" id="navBarLogo" alt="website-logo" style="margin-left:5px; border-radius:50px; max-height: 100%;">
+                <a data-target="mobile-options" class="right sidenav-trigger"><i class="fas fa-bars"></i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a onclick="displayAppPage('homePage')">Home</a></li>
+                    <li><a onclick="displayAppPage('projectsPage')">Projects</a></li>
+                    <li><a onclick="displayAppPage('skillsPage')">Skills</a></li>
+                    <li><a onclick="displayAppPage('contactPage')">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <ul class="sidenav" id="mobile-options">
+            <li><a class="sidenav-close" onclick="displayAppPage('homePage')">Home</a></li>
+            <li><a class="sidenav-close" onclick="displayAppPage('projectsPage')">Projects</a></li>
+            <li><a class="sidenav-close" onclick="displayAppPage('skillsPage')">Skills</a></li>
+            <li><a class="sidenav-close" onclick="displayAppPage('contactPage')">Contact</a></li>
+        </ul>
+
+        <!-- 'PAGES' -->
+        <div id="homePage">
+            <br>
+            <div class="container">
+                <div class="card">
+                    <div class="card-content">
+                        <span class="card-title" style="font-weight: bold;">Welcome to my site!</span>
+                        <p>
+                            Hi, my name is Chen (aka HotFireyDeath on the web). I am a self-taught and student programmer.
+                            In my off time, I love watching <a href="https://myanimelist.net/profile/HotFireyDeath">anime</a>,
+                            playing games, and programming.
+                            I am currently in high school, and have some various activities both in and out of school, such as Tae Kwon Do,
+                            swim team, piano, and art.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="projectsPage" style="display: none;">
+            <br>
+            <div class="container">
+
+                <div class="card">
+                    <div class="card-content">
+                        <p>This is a collection of my projects I have created so far. As I continue to develop more projects, they will be featured on this page as well.</p>
+                    </div>
+                </div>
+                <div id="projectsList">
+                    <div id="projectsListTemplateCard" class="card" style="display: none;">
+                        <div class="card-image">
+                            <img style="filter: blur(3px);">
+                            <span class="card-title">Title</span>
+                        </div>
+                        <div class="card-content">
+                            {description}
+                        </div>
+                        <div class="card-action">
+                            <a href="#">View Project</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="skillsPage" style="display: none;">
+            <div class="container">
+                <br>
+                <div class="card">
+                    <div class="card-content">
+                        Full-stack developer, specializes in web development.
+                        Self-taught and student programmer.
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <h5 style="font-weight: bold;">Languages</h5>
+                        <ul>
+                            <li>Javascript</li>
+                            <li>Java</li>
+                            <li>PHP</li>
+                            <li>HTML</li>
+                            <li>CSS</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="contactPage" style="display: none;">
+            <br>
+            <div class="container">
+                <div class="card">
+                    <div class="card-content">
+                        <h5 style="font-weight: bold;">Contact Me</h5>
+                        <p>If you take interest in my work, and want to commission something, please fill out the contact form
+                        below. Additionally, contact messages can also be sent to me through the same form. I will try to 
+                        respond as soon as possible.</p>
+                        <p>You can also contact me through my <a href="https://twitter.com/hotfireydeath">Twitter</a>, where I am most active.</p>
+                        
+                        <form action="https://formspree.io/czheng1968@gmail.com" method="POST">
+                            <div class="input-field">
+                                <input id="name" name="name" type="text" class="validate">
+                                <label for="name">Name</label>
+                            </div>
+                            <div class="input-field">
+                                <input id="email" name="email" type="email" class="validate">
+                                <label for="email">E-Mail</label>
+                            </div>
+                            <div class="input-field">
+                                <textarea id="message" name="message" class="materialize-textarea"></textarea>
+                                <label for="message">Message</label>
+                            </div>
+                            <button style="background-color: #AFB42B;" class="btn waves-effect waves-light">SUBMIT <i class="fas fa-paper-plane" style="color: white;"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END OF 'PAGES' -->
+
+        <script>
+            
+            /* global $ */
+            
+            var currentPage = "homePage";
+
+            function displayAppPage(pageID){
+                $("#" + currentPage).hide();
+                $("#" + pageID).show();
+                currentPage = pageID;
+            }
+
+            $(document).ready(function(){
+                $(".sidenav").sidenav();
+            });
+
+            $("#navBarLogo").attr("src", window.atob("YXNzZXRzL2ltYWdlcy9sb2dvLmpwZWc="));
+
+            //Disable right clicking on images.
+            $("img").bind("contextmenu", function(e) {
+                return false;
+            });
+
+            // Loads all projects from projects.json.
+            $.ajax({
+                url: "assets/projects.json",
+                method: "GET",
+                success: function(data){
+                    data.forEach(function(item){
+                        var projectName = item['projectName'];
+                        var localDirectoryImage = item['localDirectoryImage'];
+                        var description = item['description'];
+                        var linkToMoreInfo = item['linkToMoreInfo'];
+                        var descriptionColor = item['descriptionColor'];
+                        var titleColor = item['titleColor'];
+                        var cardColor = item['cardColor'];
+
+                        var copyOfElement = document.getElementById("projectsListTemplateCard").cloneNode(true);
+                        copyOfElement.style.backgroundColor = cardColor;
+                        var cImage = copyOfElement.children[0];
+                        var cContent = copyOfElement.children[1];
+                        var cAction = copyOfElement.children[2];
+                        cImage.children[0].src = localDirectoryImage;
+                        cImage.children[1].textContent = projectName;
+                        cImage.children[1].style.color = titleColor;
+                        cContent.textContent = description;
+                        cContent.style.color = descriptionColor;
+                        cAction.children[0].href = linkToMoreInfo;
+                        cAction.children[0].style.color = descriptionColor;
+
+                        copyOfElement.style.display = "block";
+
+                        document.getElementById("projectsList").appendChild(copyOfElement);
+                    });
+                }
+            });
+        </script>
+        <div style="text-align: center; font-size: 12px;">Copyright © 2018 Chen Zheng</div>
+    </body>
+</html>
