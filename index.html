@@ -175,10 +175,9 @@ Copyright © 2018 Chen Zheng
 
             // Loads all projects from projects.json.
             $.ajax({
-                url: "https://raw.githubusercontent.com/HotFireyDeath/web/master/manifest.json",
+                url: "https://gitcdn.link/repo/HotFireyDeath/web/master/manifest.json",
                 method: "GET",
                 success: function(data){
-                    data = JSON.parse(data);
                     data.forEach(function(item){
                         var projectName = item['projectName'];
                         var localDirectoryImage = item['localDirectoryImage'];
