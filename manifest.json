@@ -1,0 +1,18 @@
+{
+  "name" : "🤖 HFD",
+  "short_name" : "🤖 HFD",
+  "background-color" : "#36393e",
+  "description" : "HotFireyDeath's official website",
+  "display" : "fullscreen",
+  "icons" : [
+    {
+      "src" : "https://cdn.discordapp.com/icons/633088302484029492/d97c294cff1b670aedd1ffb65f14a832.jpg",
+      "sizes" : "128x128",
+      "type" : "image/jpg"
+    }
+  ],
+  "lang": "en-US",
+  "orientation": "any",
+  "start_url" : "index.html",
+  "theme_color" : "#36393e"
+}
